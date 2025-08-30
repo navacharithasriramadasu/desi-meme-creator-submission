@@ -45,7 +45,7 @@ def generate_meme(template_path, caption, language):
         st.error(f"Font file not found: {font_path}")
         return img
 
-    font = ImageFont.truetype(font_path, 40)
+    font = ImageFont.truetype(font_path, 55)
     W, H = img.size
     bbox = draw.textbbox((0, 0), caption, font=font)
     w, h = bbox[2] - bbox[0], bbox[3] - bbox[1]
@@ -67,7 +67,7 @@ def save_to_corpus(caption, language, template):
         new_row.to_csv(CORPUS_FILE, mode="w", header=True, index=False)
 
 # Streamlit UI
-st.set_page_config(page_title="🎭 Desi Meme Creator", layout="wide")
+st.set_page_config(page_title="🎭 Desi Meme Creator", layout="centered")
 st.title("🎭 Desi Meme Creator (Multilingual)")
 st.markdown("Create memes in any Indian language! Type caption in English, select language, choose template, generate meme.")
 
